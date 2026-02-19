@@ -1,18 +1,15 @@
-package com.todolist.todolist.dto;
+package com.todolist.todolist.dto.card;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
-
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PatchCardsDto {
+public class CardResponseDto {
+    private Long id;
     private String title;
-    private String content;
-    private String emoji;
     private boolean completed;
-    private LocalDateTime dueDate;
+    private String emoji;
 }
