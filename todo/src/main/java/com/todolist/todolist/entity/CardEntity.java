@@ -1,9 +1,11 @@
 package com.todolist.todolist.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
 
 import java.time.LocalDateTime;
 
+@Getter
 @Entity
 public class CardEntity {
     @Id
@@ -11,6 +13,8 @@ public class CardEntity {
     private Long id;
 
     private String title;
+
+    private boolean completed;
 
     private String emoji;
 
