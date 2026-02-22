@@ -1,9 +1,9 @@
 package com.todolist.todolist.service;
 
+import com.todolist.todolist.dto.card.CardRequestDto;
 import com.todolist.todolist.dto.card.CardResponseDto;
 import com.todolist.todolist.dto.list.ListRequestDto;
 import com.todolist.todolist.dto.list.ListResponseDto;
-import com.todolist.todolist.entity.CardEntity;
 import com.todolist.todolist.entity.ListEntity;
 import com.todolist.todolist.repository.card.CardRepository;
 import com.todolist.todolist.repository.list.ListRepository;
@@ -35,10 +35,10 @@ public class TodoListService {
     }
 
     @Transactional
-    public void editListTitle(ListRequestDto listRequestDto, Long id) {
+    public void editListTitle(Long id, ListRequestDto listRequestDto) {
         ListEntity listEntity = listRepository.findById(id)
                 .orElseThrow(()-> new IllegalArgumentException("해당 아이디가 없습니다."));
-        listEntity.UpdateListTitle(listEntity.getTitle());
+        listEntity.UpdateListTitle(listRequestDto.getTitle());
     }
 
     @Transactional
@@ -58,4 +58,9 @@ public class TodoListService {
                 .map(CardResponseDto::from)
                 .toList();
     }
+
+//    @Transactional
+//    public CardResponseDto createCard(Long listId, CardRequestDto cardRequestDto) {
+//        return cardRepository.findB
+//    }
 }

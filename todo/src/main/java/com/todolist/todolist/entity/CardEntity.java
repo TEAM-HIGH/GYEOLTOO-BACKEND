@@ -11,14 +11,11 @@ public class CardEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String title;
-
     private boolean completed;
-
     private String emoji;
 
-    private LocalDateTime dueAt;
+    private LocalDateTime dueDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "list_id")

@@ -24,14 +24,14 @@ public class ListController {
         return todoListService.createList(listRequestDto);
     }
 
-    @PatchMapping("/list/{id}")
-    public void patchList(@PathVariable Long id, @RequestBody ListRequestDto listRequestDto){
-        todoListService.editListTitle(listRequestDto, id);
+    @PatchMapping("/list/{listId}")
+    public void patchList(@PathVariable Long listId, @RequestBody ListRequestDto listRequestDto){
+        todoListService.editListTitle(listId, listRequestDto);
     }
 
-    @DeleteMapping("/list/{id}")
-    public void deleteList(@PathVariable Long id){
-        todoListService.deleteListById(id);
+    @DeleteMapping("/list/{listId}")
+    public void deleteList(@PathVariable Long listId){
+        todoListService.deleteListById(listId);
     }
 
 
