@@ -17,8 +17,14 @@ public class CardController {
         return todoListService.getCardsByListId(listId);
     }
 
-//    @PostMapping("/cards/{listId}")
-//    public CardResponseDto createCard(@PathVariable Long listId, @RequestBody CardRequestDto cardRequestDto){
-//        return todoListService.createCard(listId, cardRequestDto);
-//    }
+    @PostMapping("/lists/{listId}/cards")
+    public CardResponseDto createCard(@PathVariable Long listId, @RequestBody CardRequestDto cardRequestDto){
+        return todoListService.createCard(listId, cardRequestDto);
+    }
+
+    @DeleteMapping("cards/{cardId}")
+    public void deleteCard(@PathVariable Long cardId){
+        todoListService.deleteCardById(cardId);
+    }
+
 }
