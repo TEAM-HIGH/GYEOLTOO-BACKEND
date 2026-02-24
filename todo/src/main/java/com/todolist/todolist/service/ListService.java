@@ -1,12 +1,8 @@
 package com.todolist.todolist.service;
 
-import com.todolist.todolist.dto.card.CardRequestDto;
-import com.todolist.todolist.dto.card.CardResponseDto;
 import com.todolist.todolist.dto.list.ListRequestDto;
 import com.todolist.todolist.dto.list.ListResponseDto;
-import com.todolist.todolist.entity.CardEntity;
 import com.todolist.todolist.entity.ListEntity;
-import com.todolist.todolist.repository.card.CardRepository;
 import com.todolist.todolist.repository.list.ListRepository;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +12,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class TodoListService {
+public class ListService {
 
     private final ListRepository listRepository;
 
