@@ -4,6 +4,7 @@ import com.todolist.todolist.dto.card.CardRequestDto;
 import com.todolist.todolist.dto.card.CardResponseDto;
 import com.todolist.todolist.dto.list.ListRequestDto;
 import com.todolist.todolist.dto.list.ListResponseDto;
+import com.todolist.todolist.entity.CardEntity;
 import com.todolist.todolist.entity.ListEntity;
 import com.todolist.todolist.repository.card.CardRepository;
 import com.todolist.todolist.repository.list.ListRepository;
@@ -16,7 +17,7 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class TodoListService {
-    private final CardRepository cardRepository;
+
     private final ListRepository listRepository;
 
     @Transactional(readOnly=true)
@@ -48,19 +49,4 @@ public class TodoListService {
         listRepository.delete(deleteEntity);
     }
 
-    @Transactional(readOnly=true)
-    public List<CardResponseDto> getCardsByListId(Long listId){
-        ListEntity listEntity = listRepository.findById(listId)
-                .orElseThrow(()-> new IllegalArgumentException("id가 존재하지 않습니다."));
-
-        return cardRepository.findAllByTodoListId(listEntity.getId())
-                .stream()
-                .map(CardResponseDto::from)
-                .toList();
-    }
-
-//    @Transactional
-//    public CardResponseDto createCard(Long listId, CardRequestDto cardRequestDto) {
-//        return cardRepository.findB
-//    }
 }
