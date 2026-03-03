@@ -1,6 +1,7 @@
 package com.todolist.todolist.dto.card;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.todolist.todolist.entity.CardEntity;
 import com.todolist.todolist.entity.ListEntity;
 import lombok.AllArgsConstructor;
@@ -17,6 +18,7 @@ public class CardRequestDto {
     private String content;
     private String emoji;
     private boolean completed;
+    @JsonFormat(pattern = "yyyy-MM-dd't'HH:mm:ss")
     private LocalDateTime dueDate;
     private int position;
 
