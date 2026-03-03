@@ -7,16 +7,17 @@ import com.todolist.todolist.entity.ListEntity;
 import com.todolist.todolist.repository.card.CardRepository;
 import com.todolist.todolist.repository.list.ListRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
 @RequiredArgsConstructor
 public class CardService {
 
     private final CardRepository cardRepository;
     private final ListRepository listRepository;
-    private final ListEntity listEntity;
 
     @Transactional(readOnly=true)
     public List<CardResponseDto> getCardsByListId(Long listId){
