@@ -18,7 +18,7 @@ public class CardRequestDto {
     private String content;
     private String emoji;
     private boolean completed;
-    @JsonFormat(pattern = "yyyy-MM-dd't'HH:mm:ss")
+    @JsonFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime dueDate;
     private int position;
 
