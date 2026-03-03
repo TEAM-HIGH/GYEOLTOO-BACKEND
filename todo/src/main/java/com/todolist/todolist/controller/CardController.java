@@ -3,16 +3,18 @@ package com.todolist.todolist.controller;
 import com.todolist.todolist.dto.card.CardRequestDto;
 import com.todolist.todolist.dto.card.CardResponseDto;
 import com.todolist.todolist.service.CardService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class CardController {
 
-    private CardService cardService;
+    private final CardService cardService;
 
-    @GetMapping("/list/{listId}/cards")
+    @GetMapping("/lists/{listId}/cards")
     public List<CardResponseDto> getCards(@PathVariable Long listId){
         return cardService.getCardsByListId(listId);
     }
