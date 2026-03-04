@@ -10,26 +10,27 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
+@RequestMapping("/lists")
 public class ListController {
 
     private final ListService ListService;
 
-    @GetMapping("/list")
+    @GetMapping()
     public List<ListResponseDto> getLists(){
         return ListService.getLists();
     }
 
-    @PostMapping("/list")
+    @PostMapping()
     public ListResponseDto createList(@RequestBody ListRequestDto listRequestDto){
         return ListService.createList(listRequestDto);
     }
 
-    @PatchMapping("/list/{listId}")
+    @PatchMapping("/{listId}")
     public void patchList(@PathVariable Long listId, @RequestBody ListRequestDto listRequestDto){
         ListService.editListTitle(listId, listRequestDto);
     }
 
-    @DeleteMapping("/list/{listId}")
+    @DeleteMapping("/{listId}")
     public void deleteList(@PathVariable Long listId){
         ListService.deleteListById(listId);
     }
