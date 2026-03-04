@@ -21,7 +21,6 @@ public class CardEntity {
     private String content;
     private boolean completed;
     private String emoji;
-
     private LocalDateTime dueDate;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -39,4 +38,3 @@ public class CardEntity {
         this.position = position;
     }
 }
-
