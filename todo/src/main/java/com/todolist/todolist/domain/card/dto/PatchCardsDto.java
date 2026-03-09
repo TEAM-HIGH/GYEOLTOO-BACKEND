@@ -1,4 +1,4 @@
-package com.todolist.todolist.dto.card;
+package com.todolist.todolist.domain.card.dto;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

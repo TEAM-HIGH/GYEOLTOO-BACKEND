@@ -1,9 +1,9 @@
-package com.todolist.todolist.service;
+package com.todolist.todolist.domain.list.service;
 
-import com.todolist.todolist.dto.list.ListRequestDto;
-import com.todolist.todolist.dto.list.ListResponseDto;
-import com.todolist.todolist.entity.ListEntity;
-import com.todolist.todolist.repository.list.ListRepository;
+import com.todolist.todolist.domain.list.dto.ListRequestDto;
+import com.todolist.todolist.domain.list.dto.ListResponseDto;
+import com.todolist.todolist.domain.list.entity.ListEntity;
+import com.todolist.todolist.domain.list.repository.ListRepository;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

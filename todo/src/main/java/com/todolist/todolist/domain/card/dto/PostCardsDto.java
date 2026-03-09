@@ -1,4 +1,4 @@
-package com.todolist.todolist.dto.card;
+package com.todolist.todolist.domain.card.dto;
 
 public class PostCardsDto {
     private Long id;
