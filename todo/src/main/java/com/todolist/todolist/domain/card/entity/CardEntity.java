@@ -1,5 +1,6 @@
-package com.todolist.todolist.entity;
+package com.todolist.todolist.domain.card.entity;
 
+import com.todolist.todolist.domain.list.entity.ListEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

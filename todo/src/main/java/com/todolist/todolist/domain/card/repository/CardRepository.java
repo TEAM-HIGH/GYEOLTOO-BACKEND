@@ -1,6 +1,6 @@
-package com.todolist.todolist.repository.card;
+package com.todolist.todolist.domain.card.repository;
 
-import com.todolist.todolist.entity.CardEntity;
+import com.todolist.todolist.domain.card.entity.CardEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

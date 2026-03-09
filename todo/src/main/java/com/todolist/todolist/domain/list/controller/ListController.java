@@ -1,8 +1,8 @@
-package com.todolist.todolist.controller;
+package com.todolist.todolist.domain.list.controller;
 
-import com.todolist.todolist.dto.list.ListRequestDto;
-import com.todolist.todolist.dto.list.ListResponseDto;
-import com.todolist.todolist.service.ListService;
+import com.todolist.todolist.domain.list.dto.ListRequestDto;
+import com.todolist.todolist.domain.list.dto.ListResponseDto;
+import com.todolist.todolist.domain.list.service.ListService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

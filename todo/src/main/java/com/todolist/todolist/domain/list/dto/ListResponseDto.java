@@ -1,6 +1,6 @@
-package com.todolist.todolist.dto.list;
+package com.todolist.todolist.domain.list.dto;
 
-import com.todolist.todolist.entity.ListEntity;
+import com.todolist.todolist.domain.list.entity.ListEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

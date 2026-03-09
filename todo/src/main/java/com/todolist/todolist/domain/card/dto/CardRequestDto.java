@@ -1,9 +1,9 @@
-package com.todolist.todolist.dto.card;
+package com.todolist.todolist.domain.card.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.todolist.todolist.entity.CardEntity;
-import com.todolist.todolist.entity.ListEntity;
+import com.todolist.todolist.domain.card.entity.CardEntity;
+import com.todolist.todolist.domain.list.entity.ListEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

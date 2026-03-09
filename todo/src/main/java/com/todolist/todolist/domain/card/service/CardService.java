@@ -1,11 +1,11 @@
-package com.todolist.todolist.service;
+package com.todolist.todolist.domain.card.service;
 
-import com.todolist.todolist.dto.card.CardRequestDto;
-import com.todolist.todolist.dto.card.CardResponseDto;
-import com.todolist.todolist.entity.CardEntity;
-import com.todolist.todolist.entity.ListEntity;
-import com.todolist.todolist.repository.card.CardRepository;
-import com.todolist.todolist.repository.list.ListRepository;
+import com.todolist.todolist.domain.card.dto.CardRequestDto;
+import com.todolist.todolist.domain.card.dto.CardResponseDto;
+import com.todolist.todolist.domain.card.entity.CardEntity;
+import com.todolist.todolist.domain.list.entity.ListEntity;
+import com.todolist.todolist.domain.card.repository.CardRepository;
+import com.todolist.todolist.domain.list.repository.ListRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
