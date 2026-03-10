@@ -1,5 +1,6 @@
 package com.todolist.todolist.domain.list.service;
 
+import com.todolist.todolist.domain.list.dto.BoardResponseDto;
 import com.todolist.todolist.domain.list.dto.ListRequestDto;
 import com.todolist.todolist.domain.list.dto.ListResponseDto;
 import com.todolist.todolist.domain.list.entity.ListEntity;
@@ -21,6 +22,15 @@ public class ListService {
         return listRepository.findAll()
                 .stream()
                 .map(ListResponseDto::from)
+                .toList();
+    }
+
+    @Transactional
+    public List<BoardResponseDto> getBoards() {
+        List<ListEntity> listEntityList = listRepository.findAllWithCards();
+        return listEntityList
+                .stream()
+                .map(BoardResponseDto::from)
                 .toList();
     }
 
