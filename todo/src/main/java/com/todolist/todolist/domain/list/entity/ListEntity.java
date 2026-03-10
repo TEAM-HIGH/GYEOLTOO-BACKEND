@@ -1,13 +1,15 @@
 package com.todolist.todolist.domain.list.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.todolist.todolist.domain.card.entity.CardEntity;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -20,6 +22,8 @@ public class ListEntity {
     private Long id;
     private String title;
     private int position;
+    @OneToMany(mappedBy ="todoList", cascade = CascadeType.ALL)
+    private List<CardEntity> cards = new ArrayList<>();
 
     public void UpdateListTitle(String newTitle){
         if(newTitle == null || newTitle.isBlank()){
