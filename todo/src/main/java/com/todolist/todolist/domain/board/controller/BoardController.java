@@ -18,4 +18,8 @@ public class BoardController {
         return listService.getBoards();
     }
 
+    @GetMapping("/health")
+    public String healthCheck() {
+        return "OK";
+    }
 }
