@@ -20,8 +20,13 @@ public class ListEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String title;
+
+    @Column(nullable = false)
     private int position;
+
     @OneToMany(mappedBy ="todoList", cascade = CascadeType.ALL)
     private List<CardEntity> cards = new ArrayList<>();
 
