@@ -1,5 +1,6 @@
 package com.todolist.todolist.domain.list.entity;
 
+import com.todolist.todolist.domain.board.entity.BoardEntity;
 import com.todolist.todolist.domain.card.entity.CardEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -29,6 +30,10 @@ public class ListEntity {
 
     @OneToMany(mappedBy ="todoList", cascade = CascadeType.ALL)
     private List<CardEntity> cards = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "board_id")
+    private BoardEntity board;
 
     public void UpdateListTitle(String newTitle){
         if(newTitle == null || newTitle.isBlank()){
