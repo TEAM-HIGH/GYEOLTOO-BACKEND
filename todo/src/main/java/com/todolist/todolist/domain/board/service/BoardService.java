@@ -36,6 +36,13 @@ public class BoardService {
     public BoardResponse updateBoard(BoardRequest boardRequest, Long id) {
         BoardEntity boardEntity = boardRepository.findById(id)
                 .orElseThrow(()->new IllegalArgumentException("보드 찾지 못함"));
+        return BoardResponse.from(boardEntity);
+    }
 
+    @Transactional
+    public void deleteBoard(Long id) {
+        BoardEntity boardEntity = boardRepository.findById(id)
+                .orElseThrow(()->new IllegalArgumentException("삭제할 보드 찾지 못함"));
+        boardRepository.delete(boardEntity);
     }
 }
