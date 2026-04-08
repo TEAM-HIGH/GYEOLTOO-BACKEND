@@ -32,8 +32,13 @@ public class BoardController {
         return ResponseEntity.ok(boardResponse);
     }
 
-    @GetMapping("/health")
-    public String healthCheck() {
-        return "OK";
+    @DeleteMapping("/board/{board_id}")
+    public void deleteBoard(@PathVariable Long board_id) {
+        boardService.deleteBoard(board_id);
     }
+
+//    @GetMapping("/health")
+//    public String healthCheck() {
+//        return "OK";
+//    }
 }
