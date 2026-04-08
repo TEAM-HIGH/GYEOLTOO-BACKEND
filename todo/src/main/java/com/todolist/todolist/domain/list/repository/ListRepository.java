@@ -8,6 +8,4 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface ListRepository extends JpaRepository<ListEntity,Long> {
-    @Query("SELECT DISTINCT l FROM ListEntity l LEFT JOIN FETCH l.cards")
-    List<ListEntity> findAllWithCards();
 }
