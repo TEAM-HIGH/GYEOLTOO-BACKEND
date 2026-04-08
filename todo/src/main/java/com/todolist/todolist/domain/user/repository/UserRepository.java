@@ -3,6 +3,9 @@ package com.todolist.todolist.domain.user.repository;
 import com.todolist.todolist.domain.user.entity.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<UserEntity, Integer> {
+import java.util.Optional;
 
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
+    Boolean existsByUsername(String username);
+    Optional<UserEntity> findByUsername(String username);
 }
