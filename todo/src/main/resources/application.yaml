@@ -2,9 +2,12 @@ spring:
   application:
     name : backend
   datasource:
-    url: ${SPRING_DATASOURCE_URL}
-    username: ${SPRING_DATASOURCE_USERNAME}
-    password: ${SPRING_DATASOURCE_PASSWORD}
+    # 1. dbeaver의 localhost:3306 뒤에 /test_security를 붙입니다.
+    url: jdbc:mysql://localhost:3306/todo_db?serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    # 2. 본인의 mysql 계정 (보통 root)
+    username: root
+    # 3. 본인의 mysql 비밀번호 (dbeaver 접속 시 사용한 것)
+    password: kyokyo329@
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
@@ -12,6 +15,14 @@ spring:
     show-sql: true
     properties:
       hibernate:
+        default_batch_fetch_size: 100
         format_sql: true
+  data:
+    redis:
+      host: localhost
+      port: 6379
 server:
   port: 8080
+jwt:
+  secret:
+    key: dGhpcy1pcy1hLXNhbXBsZS1zZWNyZXQta2V5LWZvci1qd3QtdG9rZW4tcHJvdmlkZXItZXhhbXBsZQ==
