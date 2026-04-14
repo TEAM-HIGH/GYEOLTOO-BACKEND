@@ -1,10 +1,12 @@
 package com.todolist.todolist.domain.list.service;
 
-import com.todolist.todolist.domain.list.dto.BoardResponseDto;
+import com.todolist.todolist.domain.board.entity.BoardEntity;
+import com.todolist.todolist.domain.board.repository.BoardRepository;
 import com.todolist.todolist.domain.list.dto.ListRequestDto;
 import com.todolist.todolist.domain.list.dto.ListResponseDto;
 import com.todolist.todolist.domain.list.entity.ListEntity;
 import com.todolist.todolist.domain.list.repository.ListRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.transaction.annotation.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,7 @@ import java.util.List;
 public class ListService {
 
     private final ListRepository listRepository;
+    private final BoardRepository boardRepository;
 
     @Transactional(readOnly=true)
     public List<ListResponseDto> getLists() {
@@ -26,17 +29,14 @@ public class ListService {
     }
 
     @Transactional
-    public List<BoardResponseDto> getBoards() {
-        List<ListEntity> listEntityList = listRepository.findAllWithCards();
-        return listEntityList
-                .stream()
-                .map(BoardResponseDto::from)
-                .toList();
-    }
+    public ListResponseDto createList(ListRequestDto listRequestDto, Long boardId) {
+        BoardEntity boardEntity = boardRepository.findById(boardId)
+                .orElseThrow(() -> new EntityNotFoundException("보드를 찾을 수 없습니다."));
+        ListEntity listEntity = ListEntity.builder()
+                .title(listRequestDto.getTitle())
+                .board(boardEntity)
+                .build();
 
-    @Transactional
-    public ListResponseDto createList(ListRequestDto listRequestDto) {
-        ListEntity listEntity = listRequestDto.toEntity();
         ListEntity savedEntity = listRepository.save(listEntity);
         return ListResponseDto.from(savedEntity);
     }

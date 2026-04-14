@@ -20,9 +20,9 @@ public class ListController {
         return ListService.getLists();
     }
 
-    @PostMapping()
-    public ListResponseDto createList(@RequestBody ListRequestDto listRequestDto){
-        return ListService.createList(listRequestDto);
+    @PostMapping("/{boardId}")
+    public ListResponseDto createList(@PathVariable Long boardId, @RequestBody ListRequestDto listRequestDto){
+        return ListService.createList(listRequestDto, boardId);
     }
 
     @PatchMapping("/{listId}")
