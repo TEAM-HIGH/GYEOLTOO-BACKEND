@@ -4,10 +4,9 @@ import com.todolist.todolist.domain.user.dto.request.UserRequest;
 import com.todolist.todolist.domain.user.dto.response.UserResponse;
 import com.todolist.todolist.domain.user.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
@@ -24,5 +23,11 @@ public class UserController {
     @PostMapping("/signup")
     public void signup(@RequestBody UserRequest userRequestDto) {
         userService.signup(userRequestDto);
+    }
+
+    @PostMapping("/reissue")
+    public ResponseEntity<String> reissueToken(@RequestHeader("Authorization") String accessToken, @CookieValue("refreshToken") String refreshToken) {
+        String newAccessToken = userService.reissue(accessToken, refreshToken);
+        return ResponseEntity.status(HttpStatus.OK).body(newAccessToken);
     }
 }
