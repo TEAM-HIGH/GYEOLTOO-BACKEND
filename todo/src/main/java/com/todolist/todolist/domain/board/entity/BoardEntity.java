@@ -1,6 +1,7 @@
 package com.todolist.todolist.domain.board.entity;
 
 import com.todolist.todolist.domain.list.entity.ListEntity;
+import com.todolist.todolist.domain.user.entity.UserEntity;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +24,11 @@ public class BoardEntity {
     @Column(nullable = false)
     private String title;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private UserEntity user;
+
+    @Builder.Default
     @OneToMany(mappedBy = "board", cascade = CascadeType.ALL)
     private List<ListEntity> list = new ArrayList<>();
 

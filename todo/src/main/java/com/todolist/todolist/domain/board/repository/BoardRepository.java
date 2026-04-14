@@ -6,8 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface BoardRepository extends JpaRepository<BoardEntity,Long> {
-    @EntityGraph(attributePaths = {"list, list.cards"}) // boards 리스트를 즉시 로딩(JOIN)해서 가져옴
+public interface BoardRepository extends JpaRepository<BoardEntity,Long> { // boards 리스트를 즉시 로딩(JOIN)해서 가져옴
     List<BoardEntity> findAll();
+
+    Optional<BoardEntity> findById(Long id);
 }
